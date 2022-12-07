@@ -8,7 +8,7 @@ namespace tdAPI.Models
         
         [MaxLength(300)]
         public string? Title { get; set; }
-        public int DueBy { get; set; }
+        public DateTime DueBy { get; set; }
         public int Importance { get; set; }
     }
 }

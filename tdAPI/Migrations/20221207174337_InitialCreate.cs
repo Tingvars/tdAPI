@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -31,8 +32,8 @@ namespace tdAPI.Migrations
                     ToDoId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(type: "TEXT", maxLength: 300, nullable: true),
-                    DueBy = table.Column<int>(type: "INTEGER", nullable: false),
-                    CreatedTime = table.Column<int>(type: "INTEGER", nullable: false),
+                    DueBy = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Importance = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -50,8 +51,8 @@ namespace tdAPI.Migrations
                 columns: new[] { "ToDoId", "CreatedTime", "DueBy", "Importance", "Title" },
                 values: new object[,]
                 {
-                    { 1, 100, 100, 1, "First todo" },
-                    { 2, 100, 100, 9, "Second todo" }
+                    { 1, new DateTime(2022, 12, 7, 17, 43, 37, 836, DateTimeKind.Utc).AddTicks(7070), new DateTime(2022, 12, 7, 17, 43, 37, 836, DateTimeKind.Utc).AddTicks(7070), 1, "First todo" },
+                    { 2, new DateTime(2022, 12, 7, 17, 43, 37, 836, DateTimeKind.Utc).AddTicks(7070), new DateTime(2022, 12, 7, 17, 43, 37, 836, DateTimeKind.Utc).AddTicks(7070), 9, "Second todo" }
                 });
         }
 

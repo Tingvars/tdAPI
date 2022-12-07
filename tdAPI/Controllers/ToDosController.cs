@@ -45,7 +45,7 @@ namespace tdAPI.Controllers
                 Title = tododto.Title,
                 DueBy = tododto.DueBy,
                 Importance = tododto.Importance,
-                CreatedTime = 100
+                CreatedTime = DateTime.UtcNow
 
     };
 

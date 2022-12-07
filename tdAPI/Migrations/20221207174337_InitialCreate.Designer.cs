@@ -11,7 +11,7 @@ using tdAPI.Data;
 namespace tdAPI.Migrations
 {
     [DbContext(typeof(ToDoDbContext))]
-    [Migration("20221207132738_InitialCreate")]
+    [Migration("20221207174337_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -26,11 +26,11 @@ namespace tdAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CreatedTime")
-                        .HasColumnType("INTEGER");
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("DueBy")
-                        .HasColumnType("INTEGER");
+                    b.Property<DateTime>("DueBy")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Importance")
                         .HasColumnType("INTEGER");
@@ -47,16 +47,16 @@ namespace tdAPI.Migrations
                         new
                         {
                             ToDoId = 1,
-                            CreatedTime = 100,
-                            DueBy = 100,
+                            CreatedTime = new DateTime(2022, 12, 7, 17, 43, 37, 836, DateTimeKind.Utc).AddTicks(7070),
+                            DueBy = new DateTime(2022, 12, 7, 17, 43, 37, 836, DateTimeKind.Utc).AddTicks(7070),
                             Importance = 1,
                             Title = "First todo"
                         },
                         new
                         {
                             ToDoId = 2,
-                            CreatedTime = 100,
-                            DueBy = 100,
+                            CreatedTime = new DateTime(2022, 12, 7, 17, 43, 37, 836, DateTimeKind.Utc).AddTicks(7070),
+                            DueBy = new DateTime(2022, 12, 7, 17, 43, 37, 836, DateTimeKind.Utc).AddTicks(7070),
                             Importance = 9,
                             Title = "Second todo"
                         });

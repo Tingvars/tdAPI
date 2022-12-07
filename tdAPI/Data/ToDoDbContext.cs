@@ -42,16 +42,16 @@ namespace tdAPI.Data
             {
                 ToDoId = 1,
                 Title = "First todo",
-                DueBy = 100,
-                CreatedTime = 100,
+                DueBy = DateTime.UtcNow,
+                CreatedTime = DateTime.UtcNow,
                 Importance = 1
             };
             ToDo td2 = new ToDo
             {
                 ToDoId = 2,
                 Title = "Second todo",
-                DueBy = 100,
-                CreatedTime = 100,
+                DueBy = DateTime.UtcNow,
+                CreatedTime = DateTime.UtcNow,
                 Importance = 9
             };
 
