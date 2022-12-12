@@ -19,6 +19,11 @@ namespace tdAPI.Data
             throw new NotImplementedException();
         }
 
+        public bool DeleteToDo(ToDo todo)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<ToDo> GetAllToDos()
         {
 
@@ -39,7 +44,7 @@ namespace tdAPI.Data
             return null;
         }
 
-        public ToDo? UpdateTodo(int id, ToDo todoFromBody)
+        public ToDo? UpdateTodoItem(int id, ToDo todoFromBody)
         {
             throw new NotImplementedException();
         }

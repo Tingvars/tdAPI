@@ -17,6 +17,27 @@ namespace tdAPI.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
+            modelBuilder.Entity("tdAPI.Models.Settings", b =>
+                {
+                    b.Property<int>("SettingsId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("NumToDos")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("SettingsId");
+
+                    b.ToTable("Settings");
+
+                    b.HasData(
+                        new
+                        {
+                            SettingsId = 1,
+                            NumToDos = 1
+                        });
+                });
+
             modelBuilder.Entity("tdAPI.Models.ToDo", b =>
                 {
                     b.Property<int>("ToDoId")
@@ -44,16 +65,16 @@ namespace tdAPI.Migrations
                         new
                         {
                             ToDoId = 1,
-                            CreatedTime = new DateTime(2022, 12, 7, 17, 43, 37, 836, DateTimeKind.Utc).AddTicks(7070),
-                            DueBy = new DateTime(2022, 12, 7, 17, 43, 37, 836, DateTimeKind.Utc).AddTicks(7070),
+                            CreatedTime = new DateTime(2022, 12, 12, 13, 0, 58, 953, DateTimeKind.Utc).AddTicks(4680),
+                            DueBy = new DateTime(2022, 12, 12, 13, 0, 58, 953, DateTimeKind.Utc).AddTicks(4680),
                             Importance = 1,
                             Title = "First todo"
                         },
                         new
                         {
                             ToDoId = 2,
-                            CreatedTime = new DateTime(2022, 12, 7, 17, 43, 37, 836, DateTimeKind.Utc).AddTicks(7070),
-                            DueBy = new DateTime(2022, 12, 7, 17, 43, 37, 836, DateTimeKind.Utc).AddTicks(7070),
+                            CreatedTime = new DateTime(2022, 12, 12, 13, 0, 58, 953, DateTimeKind.Utc).AddTicks(4680),
+                            DueBy = new DateTime(2022, 12, 12, 13, 0, 58, 953, DateTimeKind.Utc).AddTicks(4680),
                             Importance = 9,
                             Title = "Second todo"
                         });

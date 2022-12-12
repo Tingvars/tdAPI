@@ -11,6 +11,7 @@ namespace tdAPI.Data
     {
         public DbSet<ToDoList> ToDoLists { get; set; }
         public DbSet<ToDo> ToDos { get; set; }
+        public DbSet<Settings> Settings { get; set; }
 
         public string DbPath { get; }
 
@@ -64,6 +65,14 @@ namespace tdAPI.Data
             };
 
             modelBuilder.Entity<ToDoList>().HasData(list1);
+
+            Settings defaultSettings = new Settings
+            {
+                SettingsId = 1,
+                NumToDos = 1
+
+            };
+            modelBuilder.Entity<Settings>().HasData(defaultSettings);
         }
 
     }

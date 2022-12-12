@@ -22,6 +22,22 @@ namespace tdAPI.Data
             _dbContext.SaveChanges();
         }
 
+        public bool DeleteToDo(ToDo todo)
+        {
+
+            try {
+            
+            _dbContext.ToDos.Remove(todo);
+            _dbContext.SaveChanges();
+             
+            return true;
+            } catch (Exception)
+            {
+                return false;
+            }
+
+        }
+
         public List<ToDo> GetAllToDos()
         {
 
@@ -36,6 +52,24 @@ namespace tdAPI.Data
         }
 
         public ToDo? UpdateTodo(int id, ToDo todoFromBody)
+        {
+            ToDo? todoFromDB = GetToDoById(id);
+
+            if (todoFromDB == null)
+            {
+                return null;
+            }
+
+            todoFromDB.Title = todoFromBody.Title;
+            todoFromDB.DueBy = todoFromBody.DueBy;
+            todoFromDB.Importance = todoFromBody.Importance;
+
+            _dbContext.SaveChanges();
+
+            return todoFromDB;
+        }
+
+        public ToDo? UpdateTodoItem(int id, ToDo todoFromBody)
         {
             ToDo? todoFromDB = GetToDoById(id);
 

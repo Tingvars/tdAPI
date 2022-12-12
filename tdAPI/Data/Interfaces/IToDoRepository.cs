@@ -9,11 +9,14 @@ namespace tdAPI.Data.Interfaces
 	{
 
         List<ToDo> GetAllToDos();
+
         ToDo? GetToDoById(int id);
 
         void CreateToDo(ToDo todo);
 
-        ToDo? UpdateTodo(int id, ToDo todoFromBody);
+        ToDo? UpdateTodoItem(int id, ToDo todoFromBody);
+
+        bool DeleteToDo(ToDo todo);
 
 
     }

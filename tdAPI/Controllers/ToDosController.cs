@@ -32,7 +32,7 @@ namespace tdAPI.Controllers
         public List<ToDo> GetAllToDos()
         {
             return _repo.GetAllToDos();
-                                    
+
         }
 
         [HttpPost]
@@ -40,52 +40,42 @@ namespace tdAPI.Controllers
         public ActionResult<ToDo> CreateTodo(ToDoDTO tododto)
         {
 
-            ToDo todo = new ToDo() {
+            ToDo todo = new ToDo()
+            {
 
                 Title = tododto.Title,
                 DueBy = tododto.DueBy,
                 Importance = tododto.Importance,
                 CreatedTime = DateTime.UtcNow
 
-    };
+            };
 
             _repo.CreateToDo(todo);
 
-       
-     
+
+
 
             //    return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
             return CreatedAtAction(nameof(GetToDoById), new { id = todo.ToDoId }, todo);
         }
 
-        [HttpGet]
-        [Route("{id}")]
 
-        public ActionResult<ToDo> GetToDoById(int id)
-        {
-            ToDo? todo = _repo.GetToDoById(id);
-
-            if (todo == null)
-            {
-
-                return NotFound();
-            }
-            return todo;
-        }
 
         [HttpPut]
         [Route("ToDos/{id}")]
-
-        public IActionResult UpdateTodo(int id, ToDo todoFromBody)
+        public IActionResult UpdateTodoItem(int id, ToDo todoFromBody)
         {
             if (id != todoFromBody.ToDoId)
             {
                 return BadRequest();
             }
 
+
+
             try
             {
-                ToDo? updated = _repo.UpdateTodo(id, todoFromBody);
+
+                ToDo? updated = _repo.UpdateTodoItem(id, todoFromBody);
 
                 if (updated == null)
                 {
@@ -93,6 +83,7 @@ namespace tdAPI.Controllers
                 }
 
                 return NoContent();
+
             }
             catch (Exception)
             {
@@ -100,6 +91,66 @@ namespace tdAPI.Controllers
             }
 
             return NoContent();
+        }
+
+
+        [HttpGet]
+        [Route("ToDos/{id}")]
+
+        public ActionResult<ToDo> GetToDoById(int id)
+        {
+
+            try
+            {
+                ToDo? todo = _repo.GetToDoById(id);
+
+                if (todo == null)
+                {
+                    return NotFound();
+                }
+                return todo;
+
+
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+
+        }
+
+
+
+        [HttpDelete]
+        [Route("ToDos/{id}")]
+
+        public ActionResult<bool> DeleteToDoById(int id)
+        {
+
+            try
+            {
+                ToDo? todo = _repo.GetToDoById(id);
+
+                if (todo == null)
+                {
+                    return NotFound();
+                }
+
+                 bool success = _repo.DeleteToDo(todo);
+
+                if (!success)
+                {
+                    return StatusCode(500);
+                }
+                return Ok();
+
+
+            }
+            catch (Exception)
+            {
+                return StatusCode(500);
+            }
+
         }
     }
 }
