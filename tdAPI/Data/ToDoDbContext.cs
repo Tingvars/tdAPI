@@ -4,10 +4,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using tdAPI.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace tdAPI.Data
 {
-    public class ToDoDbContext : DbContext
+    public class ToDoDbContext : IdentityDbContext
     {
         public DbSet<ToDoList> ToDoLists { get; set; }
         public DbSet<ToDo> ToDos { get; set; }
@@ -39,6 +42,9 @@ namespace tdAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            base.OnModelCreating(modelBuilder);
+
             ToDo td1 = new ToDo
             {
                 ToDoId = 1,

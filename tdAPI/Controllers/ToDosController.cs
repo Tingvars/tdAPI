@@ -10,6 +10,7 @@ using tdAPI.Data;
 using tdAPI.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace tdAPI.Controllers
 {
@@ -27,6 +28,7 @@ namespace tdAPI.Controllers
 
         }
 
+       // [Authorize]
         [HttpGet]
         [Route("ToDos")]
         public List<ToDo> GetAllToDos()

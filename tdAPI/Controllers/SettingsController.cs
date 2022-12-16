@@ -57,7 +57,7 @@ namespace tdAPI.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("Settings/{id}")]
 
         public ActionResult<Settings> GetSettingsById(int id)
         {
