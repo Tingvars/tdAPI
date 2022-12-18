@@ -11,7 +11,7 @@ using tdAPI.Data;
 namespace tdAPI.Migrations
 {
     [DbContext(typeof(ToDoDbContext))]
-    [Migration("20221216122137_InitialCreate")]
+    [Migration("20221218144844_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -221,6 +221,10 @@ namespace tdAPI.Migrations
                     b.Property<int>("NumToDos")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("SettingsId");
 
                     b.ToTable("Settings");
@@ -229,7 +233,8 @@ namespace tdAPI.Migrations
                         new
                         {
                             SettingsId = 1,
-                            NumToDos = 1
+                            NumToDos = 1,
+                            UserId = "1"
                         });
                 });
 
@@ -252,6 +257,10 @@ namespace tdAPI.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("ToDoId");
 
                     b.ToTable("ToDos");
@@ -260,18 +269,20 @@ namespace tdAPI.Migrations
                         new
                         {
                             ToDoId = 1,
-                            CreatedTime = new DateTime(2022, 12, 16, 12, 21, 37, 431, DateTimeKind.Utc).AddTicks(9310),
-                            DueBy = new DateTime(2022, 12, 16, 12, 21, 37, 431, DateTimeKind.Utc).AddTicks(9310),
+                            CreatedTime = new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470),
+                            DueBy = new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470),
                             Importance = 1,
-                            Title = "First todo"
+                            Title = "First todo",
+                            UserId = "1"
                         },
                         new
                         {
                             ToDoId = 2,
-                            CreatedTime = new DateTime(2022, 12, 16, 12, 21, 37, 431, DateTimeKind.Utc).AddTicks(9310),
-                            DueBy = new DateTime(2022, 12, 16, 12, 21, 37, 431, DateTimeKind.Utc).AddTicks(9310),
+                            CreatedTime = new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470),
+                            DueBy = new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470),
                             Importance = 9,
-                            Title = "Second todo"
+                            Title = "Second todo",
+                            UserId = "1"
                         });
                 });
 

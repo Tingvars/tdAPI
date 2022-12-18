@@ -58,7 +58,8 @@ namespace tdAPI.Migrations
                 {
                     SettingsId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    NumToDos = table.Column<int>(type: "INTEGER", nullable: false)
+                    NumToDos = table.Column<int>(type: "INTEGER", nullable: false),
+                    UserId = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,7 +87,8 @@ namespace tdAPI.Migrations
                     Title = table.Column<string>(type: "TEXT", maxLength: 300, nullable: true),
                     DueBy = table.Column<DateTime>(type: "TEXT", nullable: false),
                     CreatedTime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Importance = table.Column<int>(type: "INTEGER", nullable: false)
+                    Importance = table.Column<int>(type: "INTEGER", nullable: false),
+                    UserId = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -201,8 +203,8 @@ namespace tdAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "Settings",
-                columns: new[] { "SettingsId", "NumToDos" },
-                values: new object[] { 1, 1 });
+                columns: new[] { "SettingsId", "NumToDos", "UserId" },
+                values: new object[] { 1, 1, "1" });
 
             migrationBuilder.InsertData(
                 table: "ToDoLists",
@@ -211,11 +213,11 @@ namespace tdAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "ToDos",
-                columns: new[] { "ToDoId", "CreatedTime", "DueBy", "Importance", "Title" },
+                columns: new[] { "ToDoId", "CreatedTime", "DueBy", "Importance", "Title", "UserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 12, 16, 12, 21, 37, 431, DateTimeKind.Utc).AddTicks(9310), new DateTime(2022, 12, 16, 12, 21, 37, 431, DateTimeKind.Utc).AddTicks(9310), 1, "First todo" },
-                    { 2, new DateTime(2022, 12, 16, 12, 21, 37, 431, DateTimeKind.Utc).AddTicks(9310), new DateTime(2022, 12, 16, 12, 21, 37, 431, DateTimeKind.Utc).AddTicks(9310), 9, "Second todo" }
+                    { 1, new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470), new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470), 1, "First todo", "1" },
+                    { 2, new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470), new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470), 9, "Second todo", "1" }
                 });
 
             migrationBuilder.CreateIndex(

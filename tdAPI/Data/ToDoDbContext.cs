@@ -51,7 +51,8 @@ namespace tdAPI.Data
                 Title = "First todo",
                 DueBy = DateTime.UtcNow,
                 CreatedTime = DateTime.UtcNow,
-                Importance = 1
+                Importance = 1,
+                UserId = "1"
             };
             ToDo td2 = new ToDo
             {
@@ -59,7 +60,8 @@ namespace tdAPI.Data
                 Title = "Second todo",
                 DueBy = DateTime.UtcNow,
                 CreatedTime = DateTime.UtcNow,
-                Importance = 9
+                Importance = 9,
+                UserId = "1"
             };
 
             modelBuilder.Entity<ToDo>().HasData(td1);
@@ -75,7 +77,8 @@ namespace tdAPI.Data
             Settings defaultSettings = new Settings
             {
                 SettingsId = 1,
-                NumToDos = 1
+                NumToDos = 1,
+                UserId = "1",
 
             };
             modelBuilder.Entity<Settings>().HasData(defaultSettings);

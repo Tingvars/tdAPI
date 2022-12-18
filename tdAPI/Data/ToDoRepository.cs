@@ -62,7 +62,8 @@ namespace tdAPI.Data
 
             todoFromDB.Title = todoFromBody.Title;
             todoFromDB.DueBy = todoFromBody.DueBy;
-            todoFromDB.Importance = todoFromBody.Importance;
+            todoFromDB.UserId = todoFromBody.UserId;
+            todoFromDB.UserId = todoFromBody.UserId;
 
             _dbContext.SaveChanges();
 
@@ -81,6 +82,7 @@ namespace tdAPI.Data
             todoFromDB.Title = todoFromBody.Title;
             todoFromDB.DueBy = todoFromBody.DueBy;
             todoFromDB.Importance = todoFromBody.Importance;
+            todoFromDB.UserId = todoFromBody.UserId;
 
             _dbContext.SaveChanges();
 

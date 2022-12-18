@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Authorization;
 
+using System.IdentityModel.Tokens.Jwt;
+
 namespace tdAPI.Controllers
 {
     [Route("api")]
@@ -28,12 +30,21 @@ namespace tdAPI.Controllers
 
         }
 
-       // [Authorize]
+      //[Authorize]
         [HttpGet]
         [Route("ToDos")]
         public List<ToDo> GetAllToDos()
         {
+            // var currentUser = this.User.Claims.FirstOrDefault(x => x.Type.StartsWith("Id")).Value;
+            //.First<System.Security.Claims.Claim>(JwtRegisteredClaimNames.Email);
+
+            // FindFirst(JwtRegisteredClaimNames.Email);
+
+            //Console.WriteLine(currentUser);
+
+
             return _repo.GetAllToDos();
+
 
         }
 
@@ -48,6 +59,7 @@ namespace tdAPI.Controllers
                 Title = tododto.Title,
                 DueBy = tododto.DueBy,
                 Importance = tododto.Importance,
+                UserId = tododto.UserId,
                 CreatedTime = DateTime.UtcNow
 
             };
@@ -100,11 +112,15 @@ namespace tdAPI.Controllers
         [Route("ToDos/{id}")]
 
         public ActionResult<ToDo> GetToDoById(int id)
+
+            //int id)
         {
 
             try
             {
                 ToDo? todo = _repo.GetToDoById(id);
+
+                    //id);
 
                 if (todo == null)
                 {

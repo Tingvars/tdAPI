@@ -13,10 +13,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using tdAPI.Configuration;
+using tdAPI.Models;
 
 namespace tdAPI.Controllers
 {
-    [Route("api/[controller]")] 
+    [Route("api/[controller]")]
     [ApiController]
     public class AuthManagementController : ControllerBase
     {
@@ -132,6 +133,8 @@ namespace tdAPI.Controllers
             });
         }
 
+
+
         [HttpGet]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [Route("validatejwt")]
@@ -165,7 +168,12 @@ namespace tdAPI.Controllers
 
             return jwtToken;
         }
+
+
     }
+
 }
+
+
 
 

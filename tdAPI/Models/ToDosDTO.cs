@@ -10,6 +10,7 @@ namespace tdAPI.Models
         public string? Title { get; set; }
         public DateTime DueBy { get; set; }
         public int Importance { get; set; }
+        public string UserId { get; set; }
     }
 }
 

@@ -37,23 +37,24 @@ namespace tdAPI.Controllers
 
         [HttpPost]
         [Route("Settings")]
-        public ActionResult<Settings> CreateSettings(Settings settings)
+        public ActionResult<Settings> CreateSettings(SettingsDTO settingsdto)
         {
 
-            Settings todo = new Settings()
+            Settings settings = new Settings()
             {
 
-                NumToDos = settings.NumToDos,
+                NumToDos = settingsdto.NumToDos,
+                UserId = settingsdto.UserId,
 
             };
 
-            _repo.CreateSettings(todo);
+            _repo.CreateSettings(settings);
 
 
 
 
             //    return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
-            return CreatedAtAction(nameof(GetSettingsById), new { id = todo.SettingsId }, todo);
+            return CreatedAtAction(nameof(GetSettingsById), new { id = settings.SettingsId }, settings);
         }
 
         [HttpGet]
