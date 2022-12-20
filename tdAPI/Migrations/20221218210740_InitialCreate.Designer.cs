@@ -11,7 +11,7 @@ using tdAPI.Data;
 namespace tdAPI.Migrations
 {
     [DbContext(typeof(ToDoDbContext))]
-    [Migration("20221218144844_InitialCreate")]
+    [Migration("20221218210740_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -269,8 +269,8 @@ namespace tdAPI.Migrations
                         new
                         {
                             ToDoId = 1,
-                            CreatedTime = new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470),
-                            DueBy = new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470),
+                            CreatedTime = new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130),
+                            DueBy = new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130),
                             Importance = 1,
                             Title = "First todo",
                             UserId = "1"
@@ -278,8 +278,8 @@ namespace tdAPI.Migrations
                         new
                         {
                             ToDoId = 2,
-                            CreatedTime = new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470),
-                            DueBy = new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470),
+                            CreatedTime = new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130),
+                            DueBy = new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130),
                             Importance = 9,
                             Title = "Second todo",
                             UserId = "1"

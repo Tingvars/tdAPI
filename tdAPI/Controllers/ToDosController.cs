@@ -30,7 +30,7 @@ namespace tdAPI.Controllers
 
         }
 
-      //[Authorize]
+      [Authorize]
         [HttpGet]
         [Route("ToDos")]
         public List<ToDo> GetAllToDos()
@@ -48,6 +48,7 @@ namespace tdAPI.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         [Route("ToDos")]
         public ActionResult<ToDo> CreateTodo(ToDoDTO tododto)
@@ -74,7 +75,7 @@ namespace tdAPI.Controllers
         }
 
 
-
+        [Authorize]
         [HttpPut]
         [Route("ToDos/{id}")]
         public IActionResult UpdateTodoItem(int id, ToDo todoFromBody)
@@ -107,20 +108,19 @@ namespace tdAPI.Controllers
             return NoContent();
         }
 
-
+        [Authorize]
         [HttpGet]
         [Route("ToDos/{id}")]
 
         public ActionResult<ToDo> GetToDoById(int id)
 
-            //int id)
+           
         {
 
             try
             {
                 ToDo? todo = _repo.GetToDoById(id);
 
-                    //id);
 
                 if (todo == null)
                 {
@@ -138,7 +138,7 @@ namespace tdAPI.Controllers
         }
 
 
-
+        [Authorize]
         [HttpDelete]
         [Route("ToDos/{id}")]
 

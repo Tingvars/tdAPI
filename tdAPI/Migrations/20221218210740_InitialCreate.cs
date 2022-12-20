@@ -216,8 +216,8 @@ namespace tdAPI.Migrations
                 columns: new[] { "ToDoId", "CreatedTime", "DueBy", "Importance", "Title", "UserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470), new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470), 1, "First todo", "1" },
-                    { 2, new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470), new DateTime(2022, 12, 18, 14, 48, 44, 923, DateTimeKind.Utc).AddTicks(9470), 9, "Second todo", "1" }
+                    { 1, new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130), new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130), 1, "First todo", "1" },
+                    { 2, new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130), new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130), 9, "Second todo", "1" }
                 });
 
             migrationBuilder.CreateIndex(
