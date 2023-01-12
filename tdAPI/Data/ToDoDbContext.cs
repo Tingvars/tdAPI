@@ -79,6 +79,7 @@ namespace tdAPI.Data
                 SettingsId = 1,
                 NumToDos = 1,
                 UserId = "1",
+                Language = "en",
 
             };
             modelBuilder.Entity<Settings>().HasData(defaultSettings);

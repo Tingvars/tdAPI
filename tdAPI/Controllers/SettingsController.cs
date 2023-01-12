@@ -47,6 +47,7 @@ namespace tdAPI.Controllers
 
                 NumToDos = settingsdto.NumToDos,
                 UserId = settingsdto.UserId,
+                Language = settingsdto.Language,
 
             };
 

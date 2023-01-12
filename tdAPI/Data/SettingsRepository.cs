@@ -45,6 +45,7 @@ namespace tdAPI.Data
             }
 
             settingsFromDB.NumToDos = settingsFromBody.NumToDos;
+            settingsFromDB.Language = settingsFromBody.Language;
 
             _dbContext.SaveChanges();
 

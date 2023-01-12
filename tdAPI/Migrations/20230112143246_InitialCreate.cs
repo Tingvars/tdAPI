@@ -59,6 +59,7 @@ namespace tdAPI.Migrations
                     SettingsId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     NumToDos = table.Column<int>(type: "INTEGER", nullable: false),
+                    Language = table.Column<string>(type: "TEXT", nullable: false),
                     UserId = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -203,8 +204,8 @@ namespace tdAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "Settings",
-                columns: new[] { "SettingsId", "NumToDos", "UserId" },
-                values: new object[] { 1, 1, "1" });
+                columns: new[] { "SettingsId", "Language", "NumToDos", "UserId" },
+                values: new object[] { 1, "en", 1, "1" });
 
             migrationBuilder.InsertData(
                 table: "ToDoLists",
@@ -216,8 +217,8 @@ namespace tdAPI.Migrations
                 columns: new[] { "ToDoId", "CreatedTime", "DueBy", "Importance", "Title", "UserId" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130), new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130), 1, "First todo", "1" },
-                    { 2, new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130), new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130), 9, "Second todo", "1" }
+                    { 1, new DateTime(2023, 1, 12, 14, 32, 46, 896, DateTimeKind.Utc).AddTicks(7310), new DateTime(2023, 1, 12, 14, 32, 46, 896, DateTimeKind.Utc).AddTicks(7310), 1, "First todo", "1" },
+                    { 2, new DateTime(2023, 1, 12, 14, 32, 46, 896, DateTimeKind.Utc).AddTicks(7310), new DateTime(2023, 1, 12, 14, 32, 46, 896, DateTimeKind.Utc).AddTicks(7310), 9, "Second todo", "1" }
                 });
 
             migrationBuilder.CreateIndex(

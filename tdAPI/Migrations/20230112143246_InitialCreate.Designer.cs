@@ -11,7 +11,7 @@ using tdAPI.Data;
 namespace tdAPI.Migrations
 {
     [DbContext(typeof(ToDoDbContext))]
-    [Migration("20221218210740_InitialCreate")]
+    [Migration("20230112143246_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -218,6 +218,10 @@ namespace tdAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("NumToDos")
                         .HasColumnType("INTEGER");
 
@@ -233,6 +237,7 @@ namespace tdAPI.Migrations
                         new
                         {
                             SettingsId = 1,
+                            Language = "en",
                             NumToDos = 1,
                             UserId = "1"
                         });
@@ -269,8 +274,8 @@ namespace tdAPI.Migrations
                         new
                         {
                             ToDoId = 1,
-                            CreatedTime = new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130),
-                            DueBy = new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130),
+                            CreatedTime = new DateTime(2023, 1, 12, 14, 32, 46, 896, DateTimeKind.Utc).AddTicks(7310),
+                            DueBy = new DateTime(2023, 1, 12, 14, 32, 46, 896, DateTimeKind.Utc).AddTicks(7310),
                             Importance = 1,
                             Title = "First todo",
                             UserId = "1"
@@ -278,8 +283,8 @@ namespace tdAPI.Migrations
                         new
                         {
                             ToDoId = 2,
-                            CreatedTime = new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130),
-                            DueBy = new DateTime(2022, 12, 18, 21, 7, 40, 682, DateTimeKind.Utc).AddTicks(7130),
+                            CreatedTime = new DateTime(2023, 1, 12, 14, 32, 46, 896, DateTimeKind.Utc).AddTicks(7310),
+                            DueBy = new DateTime(2023, 1, 12, 14, 32, 46, 896, DateTimeKind.Utc).AddTicks(7310),
                             Importance = 9,
                             Title = "Second todo",
                             UserId = "1"
