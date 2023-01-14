@@ -12,7 +12,6 @@ namespace tdAPI.Data
 {
     public class ToDoDbContext : IdentityDbContext
     {
-        public DbSet<ToDoList> ToDoLists { get; set; }
         public DbSet<ToDo> ToDos { get; set; }
         public DbSet<Settings> Settings { get; set; }
 
@@ -66,13 +65,6 @@ namespace tdAPI.Data
 
             modelBuilder.Entity<ToDo>().HasData(td1);
             modelBuilder.Entity<ToDo>().HasData(td2);
-
-            ToDoList list1 = new ToDoList
-            {
-                ToDoListId = 1
-            };
-
-            modelBuilder.Entity<ToDoList>().HasData(list1);
 
             Settings defaultSettings = new Settings
             {
